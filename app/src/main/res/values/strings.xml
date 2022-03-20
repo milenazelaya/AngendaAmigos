@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Angenda Amigos</string>
+    <string name="mod">Modificar</string>
+    <string name="elim">Eliminar</string>
+    <string name="nombre">Nombre</string>
+    <string name="direccion">Direccion</string>
+    <string name="telefono">Telefono</string>
+    <string name="guardar_amigo">Guardar amigo</string>
+</resources>
