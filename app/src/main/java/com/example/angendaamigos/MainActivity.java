@@ -13,14 +13,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
 
 
 
-public class MainActivity extends Activity {
-
+public class MainActivity extends Activity implements SearchView.OnQueryTextListener {
+    SearchView txtBuscar;
     DB db;
 
     public Cursor c;
@@ -29,6 +30,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         obtenerDatos();
+        txtBuscar = findViewById(R.id.txtBuscar);
+
+        txtBuscar.setOnQueryTextListener(this);
     }
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -109,7 +113,7 @@ public class MainActivity extends Activity {
             final ArrayAdapter<String> aaUsers = new
                     ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,
                     alUsers);
-            ltsUser.setAdapter(aaUsers);
+            ltsUser.setAdapter(aaUsers);;
             do{
                 alUsers.add(c.getString(1));
             }while(c.moveToNext());
@@ -124,5 +128,15 @@ public class MainActivity extends Activity {
     public void registrar_amigos(View v){
         Intent iagregar = new Intent(MainActivity.this, agregar_amigos.class);
         startActivity(iagregar);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        return false;
     }
 }

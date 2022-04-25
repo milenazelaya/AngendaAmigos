@@ -20,6 +20,7 @@ public class DB  extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
+
     public void guardarUsuario(String nom, String dir, String tel, String accion, String id){
         SQLiteDatabase db = getWritableDatabase();
         if(accion.equals("modificar")){
